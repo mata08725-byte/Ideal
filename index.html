@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sanatorium Aura — премиальный санаторий в сердце гор. Медицинский подход, спа-ритуалы и тишина.">
+    <meta name="keywords" content="санаторий, спа, отдых, здоровье, Алтай, лечение, массаж">
+    <title>Sanatorium Aura | Здоровье и Гармония</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js for interactivity -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Fontsource Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-stone-50 text-stone-800" x-data="{ mobileMenuOpen: false }">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-teal-700 tracking-tight flex items-center gap-2">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+                Aura
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="index.html" class="nav-link text-stone-600 hover:text-teal-600 transition-colors">Главная</a>
+                <a href="about.html" class="nav-link text-stone-600 hover:text-teal-600 transition-colors">О нас</a>
+                <a href="services.html" class="nav-link text-stone-600 hover:text-teal-600 transition-colors">Услуги</a>
+                <a href="rooms.html" class="nav-link text-stone-600 hover:text-teal-600 transition-colors">Номера</a>
+                <a href="programs.html" class="nav-link text-stone-600 hover:text-teal-600 transition-colors">Программы</a>
+                <a href="gallery.html" class="nav-link text-stone-600 hover:text-teal-600 transition-colors">Галерея</a>
+                <a href="contact.html" class="bg-teal-600 text-white px-6 py-2 rounded-full hover:bg-teal-700 transition-all transform hover:scale-105 shadow-md">Забронировать</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-stone-600 focus:outline-none" data-mobile-menu>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div x-show="mobileMenuOpen"
+             x-cloak
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-2"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-2"
+             @click.away="mobileMenuOpen = false"
+             class="md:hidden bg-white border-t border-stone-100 absolute w-full shadow-lg"
+             data-mobile-menu-panel>
+            <div class="flex flex-col px-6 py-4 space-y-4">
+                <a href="index.html" class="text-stone-600 hover:text-teal-600" data-mobile-menu-link>Главная</a>
+                <a href="about.html" class="text-stone-600 hover:text-teal-600" data-mobile-menu-link>О нас</a>
+                <a href="services.html" class="text-stone-600 hover:text-teal-600" data-mobile-menu-link>Услуги</a>
+                <a href="rooms.html" class="text-stone-600 hover:text-teal-600" data-mobile-menu-link>Номера</a>
+                <a href="programs.html" class="text-stone-600 hover:text-teal-600" data-mobile-menu-link>Программы</a>
+                <a href="gallery.html" class="text-stone-600 hover:text-teal-600" data-mobile-menu-link>Галерея</a>
+                <a href="contact.html" class="text-teal-600 font-semibold" data-mobile-menu-link>Забронировать</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg h-screen flex items-center justify-center text-center px-4 relative">
+        <div class="max-w-4xl text-white fade-in">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Восстановите силы <br>в гармонии с природой</h1>
+            <p class="text-lg md:text-xl mb-10 text-stone-100 max-w-2xl mx-auto">Премиальный санаторий в сердце гор. Медицинский подход, спа-ритуалы и тишина, которую вы искали.</p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="contact.html" class="btn-primary text-lg">Подобрать программу</a>
+                <a href="about.html" class="btn-secondary text-lg">Узнать больше</a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator">
+            <svg class="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white animate-on-scroll">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/18e0be304-817a-45a1-a500-3e1771e38418.png" alt="Sanatorium Exterior" class="rounded-2xl shadow-xl w-full h-[400px] object-cover">
+                </div>
+                <div class="md:w-1/2 space-y-6">
+                    <h2 class="text-teal-600 font-semibold tracking-wide uppercase text-sm">О Санатории</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-stone-900">Место, где время замедляется</h3>
+                    <p class="text-stone-600 leading-relaxed">
+                        Aura — это не просто отель, это пространство для восстановления физического и ментального здоровья. Мы объединили передовые медицинские технологии с древними практиками релаксации.
+                    </p>
+                    <p class="text-stone-600 leading-relaxed">
+                        Расположенный в экологически чистом районе, наш санаторий предлагает уникальные программы детокса, лечения опорно-двигательного аппарата и снятия стресса.
+                    </p>
+                    <div class="grid grid-cols-3 gap-6 pt-4">
+                        <div class="text-center">
+                            <span class="block text-3xl font-bold stat-number" data-counter="20" data-suffix="+">20+</span>
+                            <span class="text-xs text-stone-500 uppercase mt-1">Программ</span>
+                        </div>
+                        <div class="text-center">
+                            <span class="block text-3xl font-bold stat-number" data-counter="50">50</span>
+                            <span class="text-xs text-stone-500 uppercase mt-1">Номеров</span>
+                        </div>
+                        <div class="text-center">
+                            <span class="block text-3xl font-bold stat-number">24/7</span>
+                            <span class="text-xs text-stone-500 uppercase mt-1">Врач</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-stone-100 animate-on-scroll">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-4">Наши Услуги</h2>
+                <p class="text-stone-600 max-w-2xl mx-auto">Комплексный подход к вашему здоровью и красоте.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-lg group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15ac0cca4-c1a7-4883-925d-65f13495df46.png" alt="Spa Massage" class="service-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-3 text-stone-800">SPA и Массаж</h3>
+                        <p class="text-stone-600 mb-4">Расслабляющий массаж, ароматерапия и гидротерапия для снятия напряжения.</p>
+                        <a href="services.html#spa" class="text-teal-600 font-semibold hover:text-teal-700 flex items-center gap-2">Подробнее <span>&rarr;</span></a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-lg group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/198db000b-4719-44e7-9a92-1e97b9579f05.png" alt="Healthy Food" class="service-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-3 text-stone-800">Диетическое питание</h3>
+                        <p class="text-stone-600 mb-4">Сбалансированное меню от шеф-повара, разработанное диетологами для детокса.</p>
+                        <a href="services.html#nutrition" class="text-teal-600 font-semibold hover:text-teal-700 flex items-center gap-2">Подробнее <span>&rarr;</span></a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-lg group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15930bae3-832a-48a7-b490-dd578142df13.png" alt="Pool" class="service-img w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-3 text-stone-800">Бассейн и Сауна</h3>
+                        <p class="text-stone-600 mb-4">Термальный бассейн с видом на горы, финская сауна и хаммам.</p>
+                        <a href="services.html#pool" class="text-teal-600 font-semibold hover:text-teal-700 flex items-center gap-2">Подробнее <span>&rarr;</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="services.html" class="btn-primary inline-block">Все услуги</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="rooms" class="py-20 bg-white animate-on-scroll">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 order-2 md:order-1 space-y-6">
+                    <h2 class="text-teal-600 font-semibold tracking-wide uppercase text-sm">Размещение</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-stone-900">Комфорт и Уют</h3>
+                    <p class="text-stone-600 leading-relaxed">
+                        Наши номера оформлены в стиле эко-минимализм. Натуральные материалы, панорамные окна и тишина обеспечивают идеальный сон.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-stone-700">
+                            <svg class="w-5 h-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Ортопедические матрасы
+                        </li>
+                        <li class="flex items-center gap-3 text-stone-700">
+                            <svg class="w-5 h-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Вид на лес или горы
+                        </li>
+                        <li class="flex items-center gap-3 text-stone-700">
+                            <svg class="w-5 h-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Зона для йоги
+                        </li>
+                    </ul>
+                    <a href="rooms.html" class="btn-primary inline-block mt-4">Все номера</a>
+                </div>
+                <div class="md:w-1/2 order-1 md:order-2">
+                    <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/189a55cf6-3b1f-4db5-a826-045c13727768.png" alt="Luxury Room" class="rounded-2xl shadow-xl w-full h-[400px] object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="py-20 bg-stone-100 animate-on-scroll">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-4">Оздоровительные Программы</h2>
+                <p class="text-stone-600 max-w-2xl mx-auto">Индивидуально подобранные программы для вашего здоровья и долголетия.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Program 1 -->
+                <div class="program-card bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-stone-800">Антистресс</h3>
+                    </div>
+                    <p class="text-stone-600 mb-4">Комплексная программа для снятия нервного напряжения и восстановления эмоционального баланса.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-teal-600 font-semibold">от 7 дней</span>
+                        <span class="text-stone-500">от 15 000 ₽/день</span>
+                    </div>
+                </div>
+
+                <!-- Program 2 -->
+                <div class="program-card bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-stone-800">Детокс</h3>
+                    </div>
+                    <p class="text-stone-600 mb-4">Очищение организма, восстановление энергии и улучшение обмена веществ.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-teal-600 font-semibold">от 5 дней</span>
+                        <span class="text-stone-500">от 12 000 ₽/день</span>
+                    </div>
+                </div>
+
+                <!-- Program 3 -->
+                <div class="program-card bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 013 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-stone-800">Иммунитет</h3>
+                    </div>
+                    <p class="text-stone-600 mb-4">Укрепление защитных сил организма с помощью природных факторов и современных методик.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-teal-600 font-semibold">от 10 дней</span>
+                        <span class="text-stone-500">от 18 000 ₽/день</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="programs.html" class="btn-primary inline-block">Все программы</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview Section -->
+    <section id="gallery" class="py-20 bg-white animate-on-scroll">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-4">Галерея</h2>
+                <p class="text-stone-600 max-w-2xl mx-auto">Посмотрите, как выглядит ваш будущий отдых.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="col-span-2 row-span-2 overflow-hidden rounded-2xl cursor-pointer" data-gallery-item>
+                    <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/18e0be304-817a-45a1-a500-3e1771e38418.png" alt="Gallery 1" class="gallery-img w-full h-full object-cover rounded-2xl">
+                </div>
+                <div class="overflow-hidden rounded-2xl cursor-pointer" data-gallery-item>
+                    <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15ac0cca4-c1a7-4883-925d-65f13495df46.png" alt="Gallery 2" class="gallery-img w-full h-full object-cover rounded-2xl">
+                </div>
+                <div class="overflow-hidden rounded-2xl cursor-pointer" data-gallery-item>
+                    <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/198db000b-4719-44e7-9a92-1e97b9579f05.png" alt="Gallery 3" class="gallery-img w-full h-full object-cover rounded-2xl">
+                </div>
+                <div class="overflow-hidden rounded-2xl cursor-pointer" data-gallery-item>
+                    <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15930bae3-832a-48a7-b490-dd578142df13.png" alt="Gallery 4" class="gallery-img w-full h-full object-cover rounded-2xl">
+                </div>
+                <div class="overflow-hidden rounded-2xl cursor-pointer" data-gallery-item>
+                    <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/189a55cf6-3b1f-4db5-a826-045c13727768.png" alt="Gallery 5" class="gallery-img w-full h-full object-cover rounded-2xl">
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="gallery.html" class="btn-primary inline-block">Смотреть всю галерею</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 bg-stone-100 animate-on-scroll">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-4">Отзывы гостей</h2>
+                <p class="text-stone-600 max-w-2xl mx-auto">Что говорят наши гости о пребывании в Aura.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto" data-testimonials>
+                <!-- Testimonial 1 -->
+                <div data-testimonial class="testimonial-card bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center text-teal-600 font-bold text-xl">А</div>
+                        <div>
+                            <h4 class="font-bold text-stone-800">Анна Петрова</h4>
+                            <div class="flex gap-1">
+                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-stone-600 leading-relaxed italic">
+                        "Это было лучшее решение — провести неделю в Aura. Программа антистресс превзошла все ожидания. Массажисты творят чудеса, а виды из окна номера просто волшебные. Обязательно вернусь!"
+                    </p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div data-testimonial class="hidden testimonial-card bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center text-teal-600 font-bold text-xl">М</div>
+                        <div>
+                            <h4 class="font-bold text-stone-800">Михаил Соколов</h4>
+                            <div class="flex gap-1">
+                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-stone-600 leading-relaxed italic">
+                        "Проходил программу лечения спины. Результат превзошел ожидания — боли ушли уже после первой недели. Врачи профессиональные, оборудование современное. Рекомендую!"
+                    </p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div data-testimonial class="hidden testimonial-card bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center text-teal-600 font-bold text-xl">Е</div>
+                        <div>
+                            <h4 class="font-bold text-stone-800">Елена Воронова</h4>
+                            <div class="flex gap-1">
+                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-stone-600 leading-relaxed italic">
+                        "Отдыхала с подругой на программе детокса. Минус 3 кг за неделю, кожа сияет, энергии хоть отбавляй! СПА-комплекс — просто сказка. Уже планируем следующую поездку."
+                    </p>
+                </div>
+
+                <div class="flex justify-center gap-2 mt-8">
+                    <button data-testimonial-dot class="testimonial-dot active w-3 h-3 rounded-full bg-teal-600"></button>
+                    <button data-testimonial-dot class="testimonial-dot w-3 h-3 rounded-full bg-stone-300"></button>
+                    <button data-testimonial-dot class="testimonial-dot w-3 h-3 rounded-full bg-stone-300"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking/Contact Section -->
+    <section id="contact" class="py-20 bg-teal-900 text-white animate-on-scroll">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto bg-teal-800 rounded-3xl p-8 md:p-12 shadow-2xl flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2 space-y-6">
+                    <h2 class="text-3xl font-bold">Забронировать отдых</h2>
+                    <p class="text-teal-100">Оставьте заявку, и наш менеджер свяжется с вами в течение 15 минут для подбора программы.</p>
+                    
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-teal-700 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                            </div>
+                            <span>+7 (999) 000-00-00</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-teal-700 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <span>booking@aura-sanatorium.ru</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-teal-700 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <span>Алтайский край, пос. Чемал</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 bg-white rounded-2xl p-6 text-stone-800">
+                    <form class="space-y-4" data-form onsubmit="event.preventDefault(); alert('Спасибо! Ваша заявка отправлена.');">
+                        <div>
+                            <label class="block text-sm font-medium text-stone-600 mb-1">Ваше имя</label>
+                            <input type="text" class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all" placeholder="Иван Иванов" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-stone-600 mb-1">Телефон</label>
+                            <input type="tel" class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all" placeholder="+7 (___) ___-__-__" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-stone-600 mb-1">Дата заезда</label>
+                            <input type="date" class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all">
+                        </div>
+                        <button type="submit" class="w-full bg-teal-600 text-white font-bold py-3 rounded-lg hover:bg-teal-700 transition-colors mt-2">
+                            Отправить заявку
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-400 py-12 border-t border-stone-800">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                        <span class="text-white font-bold text-lg">Aura Sanatorium</span>
+                    </div>
+                    <p class="text-sm text-stone-500">Премиальный санаторий для вашего здоровья и отдыха.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Навигация</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="about.html" class="hover:text-teal-500 transition-colors">О нас</a></li>
+                        <li><a href="services.html" class="hover:text-teal-500 transition-colors">Услуги</a></li>
+                        <li><a href="rooms.html" class="hover:text-teal-500 transition-colors">Номера</a></li>
+                        <li><a href="programs.html" class="hover:text-teal-500 transition-colors">Программы</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Услуги</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="services.html#spa" class="hover:text-teal-500 transition-colors">SPA и массаж</a></li>
+                        <li><a href="services.html#nutrition" class="hover:text-teal-500 transition-colors">Диетическое питание</a></li>
+                        <li><a href="services.html#pool" class="hover:text-teal-500 transition-colors">Бассейн и сауна</a></li>
+                        <li><a href="services.html#medical" class="hover:text-teal-500 transition-colors">Медицинский центр</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Контакты</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li>+7 (999) 000-00-00</li>
+                        <li>booking@aura-sanatorium.ru</li>
+                        <li>Алтайский край, пос. Чемал</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-stone-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-sm">
+                    &copy; 2025 Aura Sanatorium. Все права защищены.
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-white transition-colors">Telegram</a>
+                    <a href="#" class="hover:text-white transition-colors">VK</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
