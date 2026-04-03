@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Галерея санатория Aura — фотографии номеров, территории, услуг и мероприятий.">
-    <title>Галерея | Sanatorium Aura</title>
+    <meta name="description" content="Галерея санатория Щучинский — фотографии территории, номеров, озера Щучье и Бурабая.">
+    <title>Галерея | Санаторий Щучинский</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -18,16 +18,14 @@
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-teal-700 tracking-tight flex items-center gap-2">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                </svg>
-                Aura
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="images/logo.png" alt="Щучинский" class="h-20 w-auto" style="background: transparent;">
+                <span class="text-2xl font-bold text-teal-700 tracking-tight">Щучинский</span>
             </a>
             
             <div class="hidden md:flex space-x-8 items-center">
                 <a href="index.html" class="nav-link text-stone-600 hover:text-teal-600 transition-colors">Главная</a>
-                <a href="about.html" class="nav-link text-stone-600 hover:text-teal-600 transition-colors">О нас</a>
+                <a href="about.html" class="nav-link text-stone-600 hover:text-teal-600 transition-colors">О санатории</a>
                 <a href="services.html" class="nav-link text-stone-600 hover:text-teal-600 transition-colors">Услуги</a>
                 <a href="rooms.html" class="nav-link text-stone-600 hover:text-teal-600 transition-colors">Номера</a>
                 <a href="programs.html" class="nav-link text-stone-600 hover:text-teal-600 transition-colors">Программы</a>
@@ -55,7 +53,7 @@
              data-mobile-menu-panel>
             <div class="flex flex-col px-6 py-4 space-y-4">
                 <a href="index.html" class="text-stone-600 hover:text-teal-600" data-mobile-menu-link>Главная</a>
-                <a href="about.html" class="text-stone-600 hover:text-teal-600" data-mobile-menu-link>О нас</a>
+                <a href="about.html" class="text-stone-600 hover:text-teal-600" data-mobile-menu-link>О санатории</a>
                 <a href="services.html" class="text-stone-600 hover:text-teal-600" data-mobile-menu-link>Услуги</a>
                 <a href="rooms.html" class="text-stone-600 hover:text-teal-600" data-mobile-menu-link>Номера</a>
                 <a href="programs.html" class="text-stone-600 hover:text-teal-600" data-mobile-menu-link>Программы</a>
@@ -69,7 +67,7 @@
     <header class="page-header-bg h-[50vh] min-h-[400px] flex items-center justify-center text-center px-4 relative">
         <div class="max-w-4xl text-white fade-in">
             <h1 class="text-4xl md:text-6xl font-bold mb-6">Галерея</h1>
-            <p class="text-lg md:text-xl text-stone-200 max-w-2xl mx-auto">Посмотрите, как выглядит ваш будущий отдых в Aura</p>
+            <p class="text-lg md:text-xl text-stone-200 max-w-2xl mx-auto">Фотографии нашего санатория и живописных окрестностей Бурабая</p>
         </div>
     </header>
 
@@ -85,27 +83,22 @@
                 <button @click="activeFilter = 'exterior'" 
                         :class="activeFilter === 'exterior' ? 'bg-teal-600 text-white' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'"
                         class="px-6 py-3 rounded-full font-medium transition-all">
-                    Экстерьер
+                    Территория
                 </button>
                 <button @click="activeFilter = 'rooms'" 
                         :class="activeFilter === 'rooms' ? 'bg-teal-600 text-white' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'"
                         class="px-6 py-3 rounded-full font-medium transition-all">
                     Номера
                 </button>
-                <button @click="activeFilter = 'spa'" 
-                        :class="activeFilter === 'spa' ? 'bg-teal-600 text-white' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'"
+                <button @click="activeFilter = 'lake'" 
+                        :class="activeFilter === 'lake' ? 'bg-teal-600 text-white' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'"
                         class="px-6 py-3 rounded-full font-medium transition-all">
-                    SPA и бассейн
-                </button>
-                <button @click="activeFilter = 'food'" 
-                        :class="activeFilter === 'food' ? 'bg-teal-600 text-white' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'"
-                        class="px-6 py-3 rounded-full font-medium transition-all">
-                    Питание
+                    Озеро Щучье
                 </button>
                 <button @click="activeFilter = 'nature'" 
                         :class="activeFilter === 'nature' ? 'bg-teal-600 text-white' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'"
                         class="px-6 py-3 rounded-full font-medium transition-all">
-                    Природа
+                    Природа Бурабая
                 </button>
             </div>
         </div>
@@ -115,113 +108,90 @@
     <section class="py-12 bg-stone-50">
         <div class="container mx-auto px-6">
             
-            <!-- Exterior Photos -->
-            <div class="gallery-grid mb-8">
-                <h3 class="text-2xl font-bold text-stone-800 mb-6">Территория и Экстерьер</h3>
+            <!-- Territory Photos -->
+            <div class="gallery-grid mb-12">
+                <h3 class="text-2xl font-bold text-stone-800 mb-6">Территория Санатория</h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="col-span-2 row-span-2 overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="exterior">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/18e0be304-817a-45a1-a500-3e1771e38418.png" alt="Sanatorium Exterior" class="gallery-img w-full h-full object-cover rounded-2xl">
-                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all rounded-2xl"></div>
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/18e0be304-817a-45a1-a500-3e1771e38418.png" alt="Территория санатория" class="gallery-img w-full h-full object-cover rounded-2xl">
                     </div>
                     <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="exterior">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15ac0cca4-c1a7-4883-925d-65f13495df46.png" alt="Entrance" class="gallery-img w-full h-full object-cover rounded-2xl">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15ac0cca4-c1a7-4883-925d-65f13495df46.png" alt="Вход в санаторий" class="gallery-img w-full h-full object-cover rounded-2xl">
                     </div>
                     <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="exterior">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/198db000b-4719-44e7-9a92-1e97b9579f05.png" alt="Garden" class="gallery-img w-full h-full object-cover rounded-2xl">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/198db000b-4719-44e7-9a92-1e97b9579f05.png" alt="Сосновый бор" class="gallery-img w-full h-full object-cover rounded-2xl">
                     </div>
                     <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="exterior">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15930bae3-832a-48a7-b490-dd578142df13.png" alt="Terrace" class="gallery-img w-full h-full object-cover rounded-2xl">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15930bae3-832a-48a7-b490-dd578142df13.png" alt="Аллея" class="gallery-img w-full h-full object-cover rounded-2xl">
                     </div>
                     <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="exterior">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/189a55cf6-3b1f-4db5-a826-045c13727768.png" alt="Evening view" class="gallery-img w-full h-full object-cover rounded-2xl">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/189a55cf6-3b1f-4db5-a826-045c13727768.png" alt="Вечерний санаторий" class="gallery-img w-full h-full object-cover rounded-2xl">
                     </div>
                 </div>
             </div>
 
             <!-- Rooms Photos -->
-            <div class="gallery-grid mb-8">
+            <div class="gallery-grid mb-12">
                 <h3 class="text-2xl font-bold text-stone-800 mb-6">Номера и Интерьеры</h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="col-span-2 row-span-2 overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="rooms">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/189a55cf6-3b1f-4db5-a826-045c13727768.png" alt="Luxury Room" class="gallery-img w-full h-full object-cover rounded-2xl">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/189a55cf6-3b1f-4db5-a826-045c13727768.png" alt="Номер люкс" class="gallery-img w-full h-full object-cover rounded-2xl">
                     </div>
                     <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="rooms">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15ac0cca4-c1a7-4883-925d-65f13495df46.png" alt="Standard Room" class="gallery-img w-full h-full object-cover rounded-2xl">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15ac0cca4-c1a7-4883-925d-65f13495df46.png" alt="Стандарт номер" class="gallery-img w-full h-full object-cover rounded-2xl">
                     </div>
                     <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="rooms">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/198db000b-4719-44e7-9a92-1e97b9579f05.png" alt="Bathroom" class="gallery-img w-full h-full object-cover rounded-2xl">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/198db000b-4719-44e7-9a92-1e97b9579f05.png" alt="Ванная комната" class="gallery-img w-full h-full object-cover rounded-2xl">
                     </div>
                     <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="rooms">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15930bae3-832a-48a7-b490-dd578142df13.png" alt="Room Detail" class="gallery-img w-full h-full object-cover rounded-2xl">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15930bae3-832a-48a7-b490-dd578142df13.png" alt="Детали интерьера" class="gallery-img w-full h-full object-cover rounded-2xl">
                     </div>
                     <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="rooms">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/18e0be304-817a-45a1-a500-3e1771e38418.png" alt="Balcony" class="gallery-img w-full h-full object-cover rounded-2xl">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/18e0be304-817a-45a1-a500-3e1771e38418.png" alt="Балкон с видом" class="gallery-img w-full h-full object-cover rounded-2xl">
                     </div>
                 </div>
             </div>
 
-            <!-- SPA Photos -->
-            <div class="gallery-grid mb-8">
-                <h3 class="text-2xl font-bold text-stone-800 mb-6">SPA, Бассейн и Wellness</h3>
+            <!-- Lake Shchuchye Photos -->
+            <div class="gallery-grid mb-12">
+                <h3 class="text-2xl font-bold text-stone-800 mb-6">Озеро Щучье</h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="col-span-2 row-span-2 overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="spa">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15930bae3-832a-48a7-b490-dd578142df13.png" alt="Pool" class="gallery-img w-full h-full object-cover rounded-2xl">
+                    <div class="col-span-2 row-span-2 overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="lake">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/18e0be304-817a-45a1-a500-3e1771e38418.png" alt="Озеро Щучье" class="gallery-img w-full h-full object-cover rounded-2xl">
                     </div>
-                    <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="spa">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15ac0cca4-c1a7-4883-925d-65f13495df46.png" alt="Massage" class="gallery-img w-full h-full object-cover rounded-2xl">
+                    <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="lake">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15ac0cca4-c1a7-4883-925d-65f13495df46.png" alt="Берег озера" class="gallery-img w-full h-full object-cover rounded-2xl">
                     </div>
-                    <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="spa">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/198db000b-4719-44e7-9a92-1e97b9579f05.png" alt="Sauna" class="gallery-img w-full h-full object-cover rounded-2xl">
+                    <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="lake">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/198db000b-4719-44e7-9a92-1e97b9579f05.png" alt="Закат на озере" class="gallery-img w-full h-full object-cover rounded-2xl">
                     </div>
-                    <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="spa">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/189a55cf6-3b1f-4db5-a826-045c13727768.png" alt="Spa Treatment" class="gallery-img w-full h-full object-cover rounded-2xl">
+                    <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="lake">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15930bae3-832a-48a7-b490-dd578142df13.png" alt="Пляж" class="gallery-img w-full h-full object-cover rounded-2xl">
                     </div>
-                    <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="spa">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/18e0be304-817a-45a1-a500-3e1771e38418.png" alt="Relaxation Area" class="gallery-img w-full h-full object-cover rounded-2xl">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Food Photos -->
-            <div class="gallery-grid mb-8">
-                <h3 class="text-2xl font-bold text-stone-800 mb-6">Ресторан и Питание</h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="col-span-2 row-span-2 overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="food">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/198db000b-4719-44e7-9a92-1e97b9579f05.png" alt="Restaurant" class="gallery-img w-full h-full object-cover rounded-2xl">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="food">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15ac0cca4-c1a7-4883-925d-65f13495df46.png" alt="Healthy Breakfast" class="gallery-img w-full h-full object-cover rounded-2xl">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="food">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15930bae3-832a-48a7-b490-dd578142df13.png" alt="Gourmet Dish" class="gallery-img w-full h-full object-cover rounded-2xl">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="food">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/189a55cf6-3b1f-4db5-a826-045c13727768.png" alt="Fresh Juice" class="gallery-img w-full h-full object-cover rounded-2xl">
-                    </div>
-                    <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="food">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/18e0be304-817a-45a1-a500-3e1771e38418.png" alt="Dessert" class="gallery-img w-full h-full object-cover rounded-2xl">
+                    <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="lake">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/189a55cf6-3b1f-4db5-a826-045c13727768.png" alt="Утреннее озеро" class="gallery-img w-full h-full object-cover rounded-2xl">
                     </div>
                 </div>
             </div>
 
             <!-- Nature Photos -->
-            <div class="gallery-grid mb-8">
-                <h3 class="text-2xl font-bold text-stone-800 mb-6">Природа и Окрестности</h3>
+            <div class="gallery-grid mb-12">
+                <h3 class="text-2xl font-bold text-stone-800 mb-6">Природа Бурабая</h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="col-span-2 row-span-2 overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="nature">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/18e0be304-817a-45a1-a500-3e1771e38418.png" alt="Mountain View" class="gallery-img w-full h-full object-cover rounded-2xl">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/18e0be304-817a-45a1-a500-3e1771e38418.png" alt="Горы Бурабая" class="gallery-img w-full h-full object-cover rounded-2xl">
                     </div>
                     <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="nature">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15ac0cca4-c1a7-4883-925d-65f13495df46.png" alt="Forest Trail" class="gallery-img w-full h-full object-cover rounded-2xl">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15ac0cca4-c1a7-4883-925d-65f13495df46.png" alt="Сосновый лес" class="gallery-img w-full h-full object-cover rounded-2xl">
                     </div>
                     <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="nature">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/198db000b-4719-44e7-9a92-1e97b9579f05.png" alt="River" class="gallery-img w-full h-full object-cover rounded-2xl">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/198db000b-4719-44e7-9a92-1e97b9579f05.png" alt="Горная тропа" class="gallery-img w-full h-full object-cover rounded-2xl">
                     </div>
                     <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="nature">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15930bae3-832a-48a7-b490-dd578142df13.png" alt="Sunset" class="gallery-img w-full h-full object-cover rounded-2xl">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15930bae3-832a-48a7-b490-dd578142df13.png" alt="Цветы" class="gallery-img w-full h-full object-cover rounded-2xl">
                     </div>
                     <div class="overflow-hidden rounded-2xl cursor-pointer group" data-gallery-item data-category="nature">
-                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/189a55cf6-3b1f-4db5-a826-045c13727768.png" alt="Meadow" class="gallery-img w-full h-full object-cover rounded-2xl">
+                        <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/189a55cf6-3b1f-4db5-a826-045c13727768.png" alt="Поляна" class="gallery-img w-full h-full object-cover rounded-2xl">
                     </div>
                 </div>
             </div>
@@ -234,7 +204,7 @@
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-4">Виртуальный Тур</h2>
-                <p class="text-stone-600 max-w-2xl mx-auto">Посмотрите видео о нашем санатории</p>
+                <p class="text-stone-600 max-w-2xl mx-auto">Посмотрите видео о санатории и его окрестностях</p>
             </div>
             <div class="max-w-4xl mx-auto">
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl">
@@ -253,37 +223,28 @@
         </div>
     </section>
 
-    <!-- Instagram Section -->
+    <!-- Location Info -->
     <section class="py-20 bg-stone-100">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-4">#AuraSanatorium</h2>
-                <p class="text-stone-600 max-w-2xl mx-auto mb-8">Следите за нами в Instagram и делитесь своими фото</p>
-                <a href="#" class="inline-flex items-center gap-2 text-teal-600 font-semibold hover:text-teal-700">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                    @aura_sanatorium
-                </a>
+                <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-4">Щучинско-Боровская Курортная Зона</h2>
+                <p class="text-stone-600 max-w-3xl mx-auto">
+                    Санаторий «Щучинский» расположен в уникальном месте Казахстана — среди вековых сосновых боров на берегу кристально чистого озера Щучье. 
+                    Горный воздух, насыщенный фитонцидами, и живописные пейзажи создают идеальные условия для восстановления здоровья.
+                </p>
             </div>
-            <div class="grid grid-cols-3 md:grid-cols-6 gap-2">
-                <div class="aspect-square overflow-hidden rounded-lg cursor-pointer hover:opacity-80 transition-opacity">
-                    <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15ac0cca4-c1a7-4883-925d-65f13495df46.png" alt="Instagram 1" class="w-full h-full object-cover">
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl p-6 shadow-lg text-center">
+                    <div class="text-4xl font-bold text-teal-600 mb-2">120+ км²</div>
+                    <p class="text-stone-600">Площадь курортной зоны</p>
                 </div>
-                <div class="aspect-square overflow-hidden rounded-lg cursor-pointer hover:opacity-80 transition-opacity">
-                    <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/198db000b-4719-44e7-9a92-1e97b9579f05.png" alt="Instagram 2" class="w-full h-full object-cover">
+                <div class="bg-white rounded-xl p-6 shadow-lg text-center">
+                    <div class="text-4xl font-bold text-teal-600 mb-2">14</div>
+                    <p class="text-stone-600">Озёр в районе</p>
                 </div>
-                <div class="aspect-square overflow-hidden rounded-lg cursor-pointer hover:opacity-80 transition-opacity">
-                    <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15930bae3-832a-48a7-b490-dd578142df13.png" alt="Instagram 3" class="w-full h-full object-cover">
-                </div>
-                <div class="aspect-square overflow-hidden rounded-lg cursor-pointer hover:opacity-80 transition-opacity">
-                    <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/189a55cf6-3b1f-4db5-a826-045c13727768.png" alt="Instagram 4" class="w-full h-full object-cover">
-                </div>
-                <div class="aspect-square overflow-hidden rounded-lg cursor-pointer hover:opacity-80 transition-opacity">
-                    <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/18e0be304-817a-45a1-a500-3e1771e38418.png" alt="Instagram 5" class="w-full h-full object-cover">
-                </div>
-                <div class="aspect-square overflow-hidden rounded-lg cursor-pointer hover:opacity-80 transition-opacity">
-                    <img src="https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/15ac0cca4-c1a7-4883-925d-65f13495df46.png" alt="Instagram 6" class="w-full h-full object-cover">
+                <div class="bg-white rounded-xl p-6 shadow-lg text-center">
+                    <div class="text-4xl font-bold text-teal-600 mb-2">800+</div>
+                    <p class="text-stone-600">Видов растений</p>
                 </div>
             </div>
         </div>
@@ -313,7 +274,7 @@
     <section class="py-20 bg-teal-900 text-white">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-6">Хотите увидеть всё своими глазами?</h2>
-            <p class="text-teal-100 max-w-2xl mx-auto mb-8">Забронируйте отдых в Aura и убедитесь, что в реальности ещё красивее</p>
+            <p class="text-teal-100 max-w-2xl mx-auto mb-8">Забронируйте отдых в санатории «Щучинский» и убедитесь, что в реальности ещё красивее</p>
             <a href="contact.html" class="btn-primary inline-block text-lg">Забронировать сейчас</a>
         </div>
     </section>
@@ -327,14 +288,15 @@
                         <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                         </svg>
-                        <span class="text-white font-bold text-lg">Aura Sanatorium</span>
+                        <span class="text-white font-bold text-lg">Санаторий Щучинский</span>
                     </div>
-                    <p class="text-sm text-stone-500">Премиальный санаторий для вашего здоровья и отдыха.</p>
+                    <p class="text-sm text-stone-500 mb-4">Лечебно-оздоровительный комплекс в Щучинско-Боровской курортной зоне.</p>
+                    <p class="text-xs text-stone-600">БИН: 981240000041</p>
                 </div>
                 <div>
                     <h4 class="text-white font-semibold mb-4">Навигация</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="about.html" class="hover:text-teal-500 transition-colors">О нас</a></li>
+                        <li><a href="about.html" class="hover:text-teal-500 transition-colors">О санатории</a></li>
                         <li><a href="services.html" class="hover:text-teal-500 transition-colors">Услуги</a></li>
                         <li><a href="rooms.html" class="hover:text-teal-500 transition-colors">Номера</a></li>
                         <li><a href="programs.html" class="hover:text-teal-500 transition-colors">Программы</a></li>
@@ -343,27 +305,28 @@
                 <div>
                     <h4 class="text-white font-semibold mb-4">Услуги</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="services.html#spa" class="hover:text-teal-500 transition-colors">SPA и массаж</a></li>
-                        <li><a href="services.html#nutrition" class="hover:text-teal-500 transition-colors">Диетическое питание</a></li>
-                        <li><a href="services.html#pool" class="hover:text-teal-500 transition-colors">Бассейн и сауна</a></li>
-                        <li><a href="services.html#medical" class="hover:text-teal-500 transition-colors">Медицинский центр</a></li>
+                        <li><a href="services.html" class="hover:text-teal-500 transition-colors">Медицинские процедуры</a></li>
+                        <li><a href="services.html" class="hover:text-teal-500 transition-colors">Бассейн и сауна</a></li>
+                        <li><a href="services.html" class="hover:text-teal-500 transition-colors">SPA-услуги</a></li>
+                        <li><a href="services.html" class="hover:text-teal-500 transition-colors">Питание Herbalife</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-white font-semibold mb-4">Контакты</h4>
                     <ul class="space-y-2 text-sm">
-                        <li>+7 (999) 000-00-00</li>
-                        <li>booking@aura-sanatorium.ru</li>
-                        <li>Алтайский край, пос. Чемал</li>
+                        <li>+7 (71636) 7-90-30</li>
+                        <li>+7 (747) 226-59-18 (WhatsApp)</li>
+                        <li>san-boro@mail.ru</li>
+                        <li>г. Щучинск, ул. Зеленая-24</li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-stone-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="text-sm">&copy; 2025 Aura Sanatorium. Все права защищены.</div>
+                <div class="text-sm">&copy; 2025 АО «Санаторий Щучинский». Все права защищены.</div>
                 <div class="flex space-x-6">
                     <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-white transition-colors">WhatsApp</a>
                     <a href="#" class="hover:text-white transition-colors">Telegram</a>
-                    <a href="#" class="hover:text-white transition-colors">VK</a>
                 </div>
             </div>
         </div>

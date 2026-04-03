@@ -11,6 +11,12 @@ body {
     scroll-behavior: smooth;
 }
 
+/* Logo Image - Transparent Background */
+nav a img {
+    background: transparent !important;
+    mix-blend-mode: multiply;
+}
+
 /* Hero Background */
 .hero-bg {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('https://image.qwenlm.ai/public_source/c7d9ebb0-6d3d-4867-8709-ac8342c48e9b/18e0be304-817a-45a1-a500-3e1771e38418.png');
